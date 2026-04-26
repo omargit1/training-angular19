@@ -1,0 +1,50 @@
+<h1>{{ title }}</h1>
+
+<form>
+  <div class="mb-3">
+    <label for="courseSelect" class="form-label">Select Course</label>
+    <select
+      id="courseSelect"
+      class="form-select"
+      [value]="selectedCourse()"
+      (change)="selectedCourse.set($any($event.target).value)"
+    >
+      <option *ngFor="let course of courses" [value]="course.code">
+        {{ course.title }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="quantityInput" class="form-label">Quantity</label>
+    <input
+      id="quantityInput"
+      type="number"
+      class="form-control"
+      [value]="quantity()"
+      (input)="quantity.set(+$any($event.target).value)"
+    />
+  </div>
+
+  <button type="button" class="btn btn-primary me-2" (click)="onArticleAdded()">
+    Add to Cart
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="reset()">
+    Reset
+  </button>
+</form>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>beginners</th>
+      <th>advanced</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
