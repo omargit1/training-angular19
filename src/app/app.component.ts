@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TdfFormComponent } from './tdf-form/tdf-form.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, TdfFormComponent],
+  imports: [RouterOutlet, RouterLink, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

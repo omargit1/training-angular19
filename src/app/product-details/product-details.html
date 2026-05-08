@@ -1,0 +1,54 @@
+<div class="product-details">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Détails du produit</h2>
+    <div>
+      <a class="btn btn-primary me-2" routerLink="/product-add"
+        >Ajouter un produit</a
+      >
+      <button class="btn btn-secondary" (click)="goBack()">
+        Retour à la liste
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="isLoading" class="text-center py-4">Chargement du produit...</div>
+
+  <div *ngIf="product && !isLoading" class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Nom</label>
+            <p class="form-control-plaintext">{{ product.name }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Référence</label>
+            <p class="form-control-plaintext">{{ product.reference }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Prix</label>
+            <p class="form-control-plaintext">
+              {{ product.price | number:'1.2-2' }} €
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Description</label>
+            <p class="form-control-plaintext">{{ product.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
